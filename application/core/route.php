@@ -22,7 +22,7 @@ class Route
 
 // получаем параметры
         if (!empty($routes[3])) {
-            $param = urldecode($routes[3]);
+            $param = $routes[3];
         }
 
 // добавляем префиксы

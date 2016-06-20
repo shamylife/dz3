@@ -1,8 +1,6 @@
 <?php
-
 $filename = $data['filename'];
 $content = $data['content'];
-
 ?>
 
 <a href="edit.php?name=<?= $filename; ?>">

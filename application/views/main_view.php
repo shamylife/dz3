@@ -21,9 +21,10 @@
                 <tr>
                     <th scope="row"><?= $id ?></th>
                     <td>
-                        <a href="/show/view/<?= $name = urlencode(mb_convert_encoding($filename, 'UTF-8', "UTF-8, Windows-1251")); ?>" title="Открыть файл">
-                            <?= $filename = mb_convert_encoding($filename, 'UTF-8', "UTF-8, Windows-1251"); ?>
-                        </a>
+                    <a href="/show/view/<?=$name=urlencode(mb_convert_encoding($filename, "UTF-8", "Windows-1251"));?>"
+                       title="Открыть файл">
+                        <?= $filename = mb_convert_encoding($filename, 'UTF-8', "Windows-1251"); ?>
+                    </a>
                     </td>
                     <td>
                         <a href="edit/change/<?= $filename; ?>" title="Редактировать">
