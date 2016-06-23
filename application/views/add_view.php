@@ -16,6 +16,8 @@
     </button>
 </form>
 
-<div class="alert alert-<?= $alert; ?>" role="alert">
-    <?= $message; ?>
+<div class="alert alert-<?= $alert=null; ?>" role="alert">
+    <?= $message=null; ?>
+<!--     Notice: Undefined variable: alert  -->
+<!--    Эти переменные у тебя не определены соотвественно будет синтаксическая ошибка-->
 </div>

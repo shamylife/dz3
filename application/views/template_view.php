@@ -16,7 +16,7 @@ $first_part = $components[1];
     <link rel="stylesheet" href="../../assets/css/normalize.css">
     <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../assets/css/style.css">
-
+    
     <script src="../../assets/js/modernizr-custom.js"></script>
 
 </head>
