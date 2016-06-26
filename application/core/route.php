@@ -1,21 +1,15 @@
 <?php
 
-//======================================================================
-// * Старайся стилизовать код, чтоб он выглядел более читабельнее
-//   знаки = на одном уровне
-//   Так же открытие и закрытие скобок на твое усмотрение по мне перенос
-//   их на следующие строки читается лучше, кстати ты так сделал в function start
-//======================================================================
 class Route
 {
     protected static $parameter;
-    //можно например передать в свойство твой param
+// параметр для передачи в свойство
+
     static function start()
     {
 // контроллер и действие по умолчанию
         $controller_name = 'Main';
         $action_name     = 'index';
-
         $routes          = explode('/', $_SERVER['REQUEST_URI']);
 
 // получаем имя контроллера
@@ -27,13 +21,19 @@ class Route
 // получаем имя экшена
         if (!empty($routes[2]))
         {
-            $action_name     = $routes[2];
+            $action_name = $routes[2];
         }
 
 // получаем параметры
         if (!empty($routes[3]))
         {
-            self::$parameter           = $routes[3];
+            self::$parameter = $routes[3];
+        }
+
+// получаем параметры
+        if (!empty($routes[4]))
+        {
+            self::ErrorPage404();
         }
 
 // добавляем префиксы
@@ -61,32 +61,25 @@ class Route
             /*
             правильно было бы кинуть здесь исключение,
             но для упрощения сразу сделаем редирект на страницу 404
-
-            Ты вызываешь класс в контексте которого пишешь
-            это все лишнее
             */
-//            Route::ErrorPage404();
-            self::ErrorPage404();
+            self::ErrorPage404(); // Route::ErrorPage404();
         }
 
 // создаем контроллер
         $controller = new $controller_name;
         $action     = $action_name;
 
-        if (method_exists($controller, $action)) {
-
+        if (method_exists($controller, $action))
+        {
 // вызываем действие контроллера и передаем параметры, если таковые имеются
-            $controller->$action(  self::$parameter );
-            //если не поставить по умолчанию null будет синтаксическая ошибка notice
-            //неизвестная переменная
+            $controller->$action( self::$parameter );
         } else {
 // здесь также разумнее было бы кинуть исключение
-//            Route::ErrorPage404();
-            self::ErrorPage404();//Так правильнее
+            self::ErrorPage404(); // Route::ErrorPage404();
         }
     }
 
-    public function ErrorPage404()
+    static function ErrorPage404()
     {
         $host = 'http://' . $_SERVER['HTTP_HOST'] . '/';
         header('HTTP/1.1 404 Not Found');
