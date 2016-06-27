@@ -13,6 +13,6 @@ class Controller_Add extends Controller
         $content = nl2br(file_get_contents($dir.$argument));
 
         $data = ['argument' => $argument, 'content' => $content];
-        $this->view->generate('show_view.php', 'template_view.php', $data);
+        $this->view->generate('add_view.php', 'template_view.php', $data);
     }
 }

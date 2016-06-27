@@ -27,13 +27,13 @@
                         </form>
                     </td>
                     <td>
-                        <a href="edit/change/<?= $filename; ?>" title="Редактировать">
+                        <a href="edit/change/<?= $linkname = urlencode($filename)?>" title="Редактировать">
                             <span class="glyphicon glyphicon-edit"></span>&nbsp
                         </a>
-                        <a href="download/index/<?= $filename; ?>" title="Скачать">
+                        <a href="download/index/<?= $linkname ?>" title="Скачать">
                             <span class="glyphicon glyphicon-share"></span>&nbsp
                         </a>
-                        <a href="remove/delete/<?= $filename = urlencode($filename)?>" title="Удалить">
+                        <a href="remove/delete/<?= $linkname ?>" title="Удалить">
                             <span class="glyphicon glyphicon-remove"></span>
                         </a>
                     </td>

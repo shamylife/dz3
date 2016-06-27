@@ -1,9 +1,10 @@
 <?php
-$filename = $data['filename'];
+$filename = mb_convert_encoding($data['filename'], "UTF-8", "Windows-1251");
 $content = $data['content'];
 $alert = $data['alert'];
 $message = $data['message'];
 ?>
+
 <div <?= ($alert) ? 'style="display: block"' : 'style="display: none"' ?>>
     <div class="alert alert-<?= $alert; ?>" role="alert">
         <h4><?= $message; ?></h4>
@@ -23,19 +24,19 @@ $message = $data['message'];
 </div>
 
 <div <?= (!$alert) ? 'style="display: block"' : 'style="display: none"' ?>>
-    <a href="edit.php?name=<?= $filename; ?>">
+    <a href="/edit/change/<?= $linkname = urlencode($filename)?>">
         <button type="button" class="btn btn-primary">
             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp Edit file
         </button>
     </a>
 
-    <a href="download.php?name=<?= $filename; ?>">
+    <a href="/download/index/<?= $linkname ?>">
         <button type="button" class="btn btn-primary">
             <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>&nbsp Download
         </button>
     </a>
 
-    <a href="remove.php?name=<?= $filename; ?>">
+    <a href="/remove/delete/<?= $linkname ?>">
         <button type="button" class="btn btn-primary">
             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>&nbsp Remove
         </button>
@@ -43,7 +44,7 @@ $message = $data['message'];
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title"><b> <?= $filename = mb_convert_encoding($filename, "UTF-8", "Windows-1251"); ?> </b></h3>
+            <h3 class="panel-title"><b> <?= $filename; ?> </b></h3>
         </div>
         <div class="panel-body">
             <?= (!empty($content)) ? $content = nl2br(htmlspecialchars($content)) : "<h4>Файл пуст!</h4>"; ?>

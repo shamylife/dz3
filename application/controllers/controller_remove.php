@@ -22,7 +22,7 @@ class Controller_Remove extends Controller
             $message = "Файл <b> $output </b> удален!";
         } else {
             $alert = 'danger';
-            $message = 'Файл не найден!';
+            $message = "Файл <b> $output </b> не найден!";
         }
 
         $data = ['alert' => $alert, 'message' => $message, 'filename' => $filename];
