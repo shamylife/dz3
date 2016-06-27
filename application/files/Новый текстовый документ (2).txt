@@ -1,5 +1,0 @@
-﻿<form action="/url">
-
-<input type='hidden' value='filename.txt'>
-
-<input type="submit"/>

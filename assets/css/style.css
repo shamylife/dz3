@@ -26,8 +26,11 @@ table {
     min-width: 1000px;
 }
 
-.empty {
-    height: 30px;
+.empty p {
+    color: #777;
+    font-style: italic;
+    font-weight: bold;
+    padding-bottom: 10px;
 }
 
 .footer {

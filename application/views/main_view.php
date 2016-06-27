@@ -1,7 +1,7 @@
 <div class="col-md-8">
     <h3>Список файлов:</h3>
 
-    <div <?= (empty($data)) ? 'style="display: block"' : 'style="display: none"' ?>>
+    <div class="empty" <?= (empty($data)) ? 'style="display: block"' : 'style="display: none"' ?>>
         <p>Папка пуста</p>
     </div>
 
@@ -33,7 +33,7 @@
                         <a href="download/index/<?= $filename; ?>" title="Скачать">
                             <span class="glyphicon glyphicon-share"></span>&nbsp
                         </a>
-                        <a href="remove/delete/<?= $filename; ?>" title="Удалить">
+                        <a href="remove/delete/<?= $filename = urlencode($filename)?>" title="Удалить">
                             <span class="glyphicon glyphicon-remove"></span>
                         </a>
                     </td>

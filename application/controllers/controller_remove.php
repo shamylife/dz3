@@ -9,12 +9,17 @@ class Controller_Remove extends Controller
     function action_delete($argument = null)
     {
         $dir = 'application/files/';
-        $filename = $argument;
+
+        $filename = urldecode($argument);
+        $filename = mb_convert_encoding($filename, "Windows-1251", "UTF-8");
+
+        $output = mb_convert_encoding($filename, "UTF-8", "Windows-1251");
+
 
         if (file_exists($dir.$filename)) {
             unlink($dir.$filename);
             $alert = 'success';
-            $message = 'Файл удален!';
+            $message = "Файл <b> $output </b> удален!";
         } else {
             $alert = 'danger';
             $message = 'Файл не найден!';
