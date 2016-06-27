@@ -1,4 +1,4 @@
-<div class="col-md-6">
+<div class="col-md-8">
     <h3>Список файлов:</h3>
 
     <div <?= (empty($data)) ? 'style="display: block"' : 'style="display: none"' ?>>
@@ -21,10 +21,10 @@
                 <tr>
                     <th scope="row"><?= $id ?></th>
                     <td>
-                    <a href="/show/view/<?=$name=urlencode(mb_convert_encoding($filename, "UTF-8", "Windows-1251"));?>"
-                       title="Открыть файл">
-                        <?= $filename = mb_convert_encoding($filename, 'UTF-8', "Windows-1251"); ?>
-                    </a>
+                        <form id="button" action="/show/view" method="POST">
+                            <input type='hidden' name='filename' value='<?= $filename = mb_convert_encoding($filename, "UTF-8", "Windows-1251");?>'>
+                            <input class="button" type="submit" value="<?= $filename; ?>">
+                        </form>
                     </td>
                     <td>
                         <a href="edit/change/<?= $filename; ?>" title="Редактировать">

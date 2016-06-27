@@ -15,10 +15,16 @@ class Controller_Show extends Controller
     public function action_view($argument = null)
     {
         $dir       = 'application/files/';
-        $filename  = urldecode($argument);
-        $content   = nl2br(file_get_contents($dir.$filename));
+        $filename  = mb_convert_encoding($_REQUEST['filename'], "Windows-1251", "UTF-8");
 
-        $data      = ['filename' => $filename, 'content' => $content];
+        if (!file_exists($dir.$filename)) {
+            $alert = true;
+            $message = 'Такого файла не существует!';
+        } else {
+            $content   = file_get_contents($dir.$filename);
+        }
+
+        $data      = ['filename' => $filename, 'content' => $content, 'alert' => $alert, 'message' => $message];
         $this->view->generate('show_view.php', 'template_view.php', $data);
     }
 }
