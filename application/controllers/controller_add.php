@@ -2,17 +2,23 @@
 
 class Controller_Add extends Controller
 {
-    function action_index()
+    function action_index($argument = null)
     {
         $this->view->generate('add_view.php', 'template_view.php');
     }
-
-    public function action_create($argument = null)
+    function action_create()
     {
         $dir = 'application/files/';
-        $content = nl2br(file_get_contents($dir.$argument));
-
-        $data = ['argument' => $argument, 'content' => $content];
-        $this->view->generate('add_view.php', 'template_view.php', $data);
+        $filename  = mb_convert_encoding($_POST['filename'], "Windows-1251", "UTF-8");
+ /*       
+        if (!file_exists($dir.$filename)) {
+            $alert   = true;
+            $message = 'Такого файла не существует!';
+        } else {
+            $content = file_get_contents($dir.$filename);
+        }
+  */      
+        $data = ['filename' => $filename, 'content' => $content, 'alert' => $alert, 'message' => $message];
+        $this->view->generate('show_view.php', 'template_view.php', $data);
     }
 }

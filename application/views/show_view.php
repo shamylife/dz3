@@ -3,6 +3,8 @@ $filename = mb_convert_encoding($data['filename'], "UTF-8", "Windows-1251");
 $content = $data['content'];
 $alert = $data['alert'];
 $message = $data['message'];
+
+echo $filename;
 ?>
 
 <div <?= ($alert) ? 'style="display: block"' : 'style="display: none"' ?>>

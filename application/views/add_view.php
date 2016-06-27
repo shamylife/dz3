@@ -1,8 +1,8 @@
-<form action="add/create" method="POST">
+<form action="/add/create" method="POST">
     <div class="form-group">
         <label for="fileName">Add file name:</label>
         <?php $value = (isset($file)) ? $file : ''; ?>
-        <input type="text" class="form-control" name="name" placeholder="File name(*.txt)" value="<?= $value; ?>">
+        <input type="text" class="form-control" name="name" id="fileName" placeholder="File name(*.txt)" value="<?= $value; ?>">
     </div>
 
     <div class="form-group">
@@ -12,9 +12,15 @@
     </div>
 
     <button type="submit" class="btn btn-primary">
-        <span class="glyphicon glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp Add file
+        <span class="glyphicon glyphicon glyphicon-plus" ></span>&nbsp Add file
     </button>
 </form>
+
+
+
+
+
+<!--     перекинуть в шоу, после успешного создания  -->
 
 <div class="alert alert-<?= $alert=null; ?>" role="alert">
     <?= $message=null; ?>
