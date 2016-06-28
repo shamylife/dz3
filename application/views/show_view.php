@@ -2,14 +2,13 @@
 $filename = mb_convert_encoding($data['filename'], "UTF-8", "Windows-1251");
 $content = $data['content'];
 $alert = $data['alert'];
+$error = $data['error'];
 $message = $data['message'];
-
-echo $filename;
 ?>
 
-<div <?= ($alert) ? 'style="display: block"' : 'style="display: none"' ?>>
+<div <?= ($error) ? 'style="display: block"' : 'style="display: none"' ?>>
     <div class="alert alert-<?= $alert; ?>" role="alert">
-        <h4><?= $message; ?></h4>
+        <p><?= $message; ?></p>
     </div>
 
     <a href="/add/">
@@ -25,8 +24,8 @@ echo $filename;
     </a>
 </div>
 
-<div <?= (!$alert) ? 'style="display: block"' : 'style="display: none"' ?>>
-    <a href="/edit/change/<?= $linkname = urlencode($filename)?>">
+<div <?= (!$error) ? 'style="display: block"' : 'style="display: none"' ?>>
+    <a href="/edit/change/<?= $linkname = urlencode($filename) ?>">
         <button type="button" class="btn btn-primary">
             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp Edit file
         </button>
@@ -51,5 +50,9 @@ echo $filename;
         <div class="panel-body">
             <?= (!empty($content)) ? $content = nl2br(htmlspecialchars($content)) : "<h4>Файл пуст!</h4>"; ?>
         </div>
+    </div>
+
+    <div class="alert alert-<?= $alert; ?>" role="alert">
+        <?= $message; ?>
     </div>
 </div>
