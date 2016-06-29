@@ -1,6 +1,14 @@
+<?php
+$filename = $data['filename'];
+$content  = $data['content'];
+$alert    = $data['alert'];
+$message  = $data['message'];
+
+?>
+
 <h4>Редактирование файла <b><?= $filename; ?></b></h4>
 
-<form action="<?= $_SERVER['REQUEST_URI']; ?>" method="POST">
+<form action="/edit/change" method="POST">
     <div class="form-group">
         <label for="fileContent"></label>
         <textarea class="form-control" name="content" id="fileContent" rows="10"><?= $content; ?></textarea>

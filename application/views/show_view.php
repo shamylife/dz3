@@ -25,7 +25,7 @@ $message = $data['message'];
 </div>
 
 <div <?= (!$error) ? 'style="display: block"' : 'style="display: none"' ?>>
-    <a href="/edit/change/<?= $linkname = urlencode($filename) ?>">
+    <a href="/edit/index/<?= $linkname = urlencode($filename) ?>">
         <button type="button" class="btn btn-primary">
             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp Edit file
         </button>

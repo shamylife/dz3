@@ -27,7 +27,7 @@
                         </form>
                     </td>
                     <td>
-                        <a href="edit/change/<?= $linkname = urlencode($filename)?>" title="Редактировать">
+                        <a href="edit/index/<?= $linkname = urlencode($filename)?>" title="Редактировать">
                             <span class="glyphicon glyphicon-edit"></span>&nbsp
                         </a>
                         <a href="download/index/<?= $linkname ?>" title="Скачать">
