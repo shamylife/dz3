@@ -13,7 +13,6 @@ class Controller_Upload extends Controller
         $max_file_size = $_POST['MAX_FILE_SIZE'];
         
         $file = $_FILES['uploadfile'];
-        $file_size = filesize($file['name']);
         $file_mime = $_FILES['uploadfile']['type'];
 
         if (!$error) {
@@ -24,13 +23,6 @@ class Controller_Upload extends Controller
             }
         }
 
-        if (!$error) {
-            if ($file_size > $max_file_size) {
-                $error = true;
-                $alert = 'danger';
-                $message = 'Размер файла не должен превышать 2Мб!';
-            }
-        }
         if (!$error) {
             if ($file_mime != 'text/plain') {
                 $error = true;
@@ -62,7 +54,7 @@ class Controller_Upload extends Controller
             }
         }
         
-        $data = ['error' => $error, 'alert' => $alert, 'message' => $message, 'file_size' => $file_size, 'filename' => $filename, 'max_file_size' => $max_file_size];
+        $data = ['error' => $error, 'alert' => $alert, 'message' => $message, 'filename' => $filename];
         $this->view->generate('upload_view.php', 'template_view.php', $data);
     }
 }

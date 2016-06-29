@@ -3,10 +3,8 @@ $filename = $data['filename'];
 $error = $data['error'];
 $alert = $data['alert'];
 $message = $data['message'];
-
-echo $max_file_size = $data['max_file_size'];
-echo $file_size = $data['$file_size'];
 ?>
+
 <h4>Загрузите свой файл в формате <i><b>.txt</b></i></h4>
 
 <p style="color: #777;"><i>Максимальный размер файла 2Мб</i></p>
