@@ -18,10 +18,10 @@ class Controller_Remove extends Controller
 
         if (file_exists($dir.$filename)) {
             unlink($dir.$filename);
-            $alert = 'success';
+            $alert   = 'success';
             $message = "Файл <b> $output </b> удален!";
         } else {
-            $alert = 'danger';
+            $alert   = 'danger';
             $message = "Файл <b> $output </b> не найден!";
         }
 

@@ -8,11 +8,11 @@ class Controller_Upload extends Controller
     }
     function action_transfer()
     {
-        $dir = 'application/files/';
+        $dir       = 'application/files/';
 
-        $max_file_size = $_POST['MAX_FILE_SIZE'];
+        $error     = false;
         
-        $file = $_FILES['uploadfile'];
+        $file      = $_FILES['uploadfile'];
         $file_mime = $_FILES['uploadfile']['type'];
 
         if (!$error) {
