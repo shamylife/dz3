@@ -1,6 +1,6 @@
 <?php
 
-$path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$path       = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $components = explode('/', $path);
 $first_part = $components[1];
 
@@ -12,7 +12,7 @@ $first_part = $components[1];
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <title>Home Work #3</title>
     <meta content="viewport" width="1000"/>
-
+   
     <link rel="stylesheet" href="../../assets/css/normalize.css">
     <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../assets/css/style.css">

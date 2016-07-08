@@ -13,7 +13,7 @@ class Controller_Remove extends Controller
         $filename = urldecode($argument);
         $filename = mb_convert_encoding($filename, "Windows-1251", "UTF-8");
 
-        $output = mb_convert_encoding($filename, "UTF-8", "Windows-1251");
+        $output   = mb_convert_encoding($filename, "UTF-8", "Windows-1251");
 
 
         if (file_exists($dir.$filename)) {

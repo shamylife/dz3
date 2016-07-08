@@ -27,6 +27,7 @@ class Route
 // получаем параметры
         if (!empty($routes[3]))
         {
+            
             //self::ErrorPage404();
             self::$parameter = $routes[3];
         }
