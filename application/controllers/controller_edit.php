@@ -2,7 +2,7 @@
 
 class Controller_Edit extends Controller
 {
-    protected $pathFilesDirectory = 'application/files/';
+   // protected $pathFilesDirectory = 'application/files/';
     
     public function __construct()
     {
@@ -14,7 +14,7 @@ class Controller_Edit extends Controller
         $dir       = 'application/files/';//а для чего она здесь нужна?
         //лучше вынести ее в конфиг или в например хотя бы в свойство класса
 
-        $filename  = urldecode($argument);die($filename);
+        $filename  = urldecode($argument);
         $filename  = mb_convert_encoding($filename, "Windows-1251", "UTF-8");
 
         $output    = mb_convert_encoding($filename, "UTF-8", "Windows-1251");
@@ -29,7 +29,7 @@ class Controller_Edit extends Controller
 
     public function action_change($argument = null)
     {
-//        $dir       = 'application/files/';
+        $dir       = 'application/files/';
 
         $filename  = mb_convert_encoding($_POST['filename'], "Windows-1251", "UTF-8");
 
@@ -37,7 +37,7 @@ class Controller_Edit extends Controller
 
         $content   = htmlspecialchars($_POST['content']);
 //а здесь мы можем вызвать наше свойство
-        if (file_put_contents($this->pathFilesDirectory . $filename, $content)) {
+        if (file_put_contents($dir . $filename, $content)) {
             $message = "<p>Изменения успешно сохранены в файл <b>$output</b>!</p>";
             $alert = 'success';
         } else {
