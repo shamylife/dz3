@@ -2,8 +2,6 @@
 
 class Controller_Edit extends Controller
 {
-   // protected $pathFilesDirectory = 'application/files/';
-    
     public function __construct()
     {
         $this->view = new View();
@@ -36,7 +34,7 @@ class Controller_Edit extends Controller
         $output    = mb_convert_encoding($filename, "UTF-8", "Windows-1251");
 
         $content   = htmlspecialchars($_POST['content']);
-//а здесь мы можем вызвать наше свойство
+
         if (file_put_contents($dir . $filename, $content)) {
             $message = "<p>Изменения успешно сохранены в файл <b>$output</b>!</p>";
             $alert = 'success';
